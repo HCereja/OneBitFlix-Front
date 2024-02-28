@@ -3,7 +3,7 @@ import HeaderGeneric from "../src/components/common/headerGeneric";
 import styles from "../styles/registerLogin.module.scss";
 import Head from "next/head";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import authService from "../src/services/authServices";
 import { useRouter } from "next/router";
 import ToastComponent from "../src/components/common/toast";
@@ -49,6 +49,12 @@ const Register = () => {
       setToastMessage(data.message);
     }
   };
+
+  useEffect(() => {
+    if (sessionStorage.getItem("onebitflix-token")) {
+      router.push("/home");
+    }
+  }, []);
 
   return (
     <>
