@@ -95,7 +95,9 @@
     justify-content: center;
     gap: 20px;
   }
+}
 
+@media (max-width: 537px) {
   .modal {
     top: 140px;
   }
