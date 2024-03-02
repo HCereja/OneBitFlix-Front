@@ -4,6 +4,7 @@ import NewestCategory from "../src/components/homeAuth/newestCategory";
 import FavoriteCategory from "../src/components/homeAuth/favoriteCategory";
 import FeaturedCategory from "../src/components/homeAuth/featuredCategory";
 import ListCategories from "../src/components/homeAuth/listCategories";
+import Footer from "../src/components/common/footer";
 
 const HomeAuth = () => {
   return (
@@ -22,6 +23,8 @@ const HomeAuth = () => {
         <FeaturedCategory />
         <br />
         <ListCategories />
+        <br />
+        <Footer />
       </main>
     </>
   );
