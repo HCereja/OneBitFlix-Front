@@ -8,6 +8,11 @@ interface UserParams {
   created_at: string;
 }
 
+interface PasswordParams {
+  currentPassword: string;
+  newPassword: string;
+}
+
 const profileService = {
   fetchCurrentInfo: async () => {
     const token = sessionStorage.getItem("onebitflix-token");
@@ -33,6 +38,31 @@ const profileService = {
           Authorization: `Bearer ${token}`,
         },
       })
+      .catch((err) => {
+        if (err.response.status === 400 || err.response.status === 401) {
+          console.log(err);
+          return err.response;
+        }
+        return err;
+      });
+
+    return res.status;
+  },
+  passwordUpdate: async (params: PasswordParams) => {
+    const token = sessionStorage.getItem("onebitflix-token");
+
+    console.log(params);
+
+    const res = await api
+      .put(
+        "/users/update/password",
+        { password: params.currentPassword, newPassword: params.newPassword },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .catch((err) => {
         if (err.response.status === 400 || err.response.status === 401) {
           console.log(err);
