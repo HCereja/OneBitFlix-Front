@@ -134,6 +134,22 @@
     background-color: transparent;
     color: $lightGray;
   }
+
+  &:active {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &:focus {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .footer {
