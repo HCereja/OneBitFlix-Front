@@ -2,6 +2,7 @@ import useSWR from "swr";
 import styles from "../../../../styles/slideCategory.module.scss";
 import courseService from "../../../services/courseServices";
 import SlideComponent from "../../common/slideComponent";
+import SpinnerComponent from "../../common/spinner";
 
 const FavoriteCategory = () => {
   const { data, error } = useSWR("/favorites", courseService.getFavorites);
@@ -11,11 +12,7 @@ const FavoriteCategory = () => {
   }
 
   if (!data) {
-    return (
-      <>
-        <p>Loading</p>
-      </>
-    );
+    return <SpinnerComponent />;
   }
 
   return (

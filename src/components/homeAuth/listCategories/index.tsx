@@ -3,6 +3,7 @@ import categoriesService, {
   CategoryType,
 } from "../../../services/categoriesService";
 import ListCategoriesSlide from "../listCategoriesSlide";
+import SpinnerComponent from "../../common/spinner";
 
 const ListCategories = () => {
   const { data, error } = useSWR(
@@ -15,11 +16,7 @@ const ListCategories = () => {
   }
 
   if (!data) {
-    return (
-      <>
-        <p>Loading</p>
-      </>
-    );
+    return <SpinnerComponent />;
   }
 
   return (

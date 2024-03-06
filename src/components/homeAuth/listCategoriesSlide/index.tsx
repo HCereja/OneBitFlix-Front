@@ -2,6 +2,7 @@ import styles from "../../../../styles/slideCategory.module.scss";
 import useSWR from "swr";
 import categoriesService from "../../../services/categoriesService";
 import SlideComponent from "../../common/slideComponent";
+import SpinnerComponent from "../../common/spinner";
 
 interface props {
   categoryId: number;
@@ -18,11 +19,7 @@ const ListCategoriesSlide = ({ categoryId, categoryName }: props) => {
   }
 
   if (!data) {
-    return (
-      <>
-        <p>Loading</p>
-      </>
-    );
+    return <SpinnerComponent />;
   }
 
   return (
