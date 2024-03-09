@@ -143,13 +143,9 @@ const CoursePage = () => {
               <strong>Ainda não existem episódios para esse curso</strong>
             </p>
           ) : (
-            course.episodes?.map((episode) => (
+            course.episodes?.map((episode, index) => (
               <>
-                <EpisodeList
-                  key={episode.id}
-                  episode={episode}
-                  course={course}
-                />
+                <EpisodeList key={index} episode={episode} course={course} />
               </>
             ))
           )}
