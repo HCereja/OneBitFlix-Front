@@ -11,6 +11,17 @@ import Footer from "../../src/components/common/footer";
 
 const CoursePage = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("onebitflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  const [loading, setLoading] = useState(true);
+
   const { id } = router.query;
 
   const [course, setCourse] = useState<CourseType>();
@@ -65,6 +76,10 @@ const CoursePage = () => {
   }, [id]);
 
   if (course === undefined) {
+    return <SpinnerComponent />;
+  }
+
+  if (loading) {
     return <SpinnerComponent />;
   }
 
